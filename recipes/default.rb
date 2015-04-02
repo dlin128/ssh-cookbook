@@ -24,10 +24,6 @@ ssh_config "UsePAM" do
   string "UsePAM #{node[:ssh][:use_pam]}"
 end
 
-ssh_config "UseDNS" do
-  string "UseDNS #{node[:ssh][:use_dns]}"
-end
-
 ssh_config "AllowGroups" do
   string "AllowGroups #{node[:ssh][:allowed_groups].join(' ')}"
   only_if { node[:ssh][:allowed_groups].any? }
